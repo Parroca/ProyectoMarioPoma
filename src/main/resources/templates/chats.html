@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chats</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" th:href="@{/css/chat.css}" href="../static/css/chats.css"/>
+    
+</head>
+<body class="d-flex flex-column min-vh-100">
+
+    <div th:if="${#authorization.expression('hasRole(''ROLE_ADMIN'')')}">
+        <div th:include="fragments/template.html::header"></div>
+    </div>
+    <div th:if="${#authorization.expression('hasRole(''ROLE_USER'')')}">
+        <div th:include="fragments/user_template.html::header"></div>
+    </div>
+    
+	<div class="container mt-5 flex-grow-1">
+	    <h1>Mis Chats</h1>
+	    <div th:if="${message}" class="alert alert-info" role="alert">
+        	<p th:text="${message}"></p>
+    	</div>
+	    <ul class="list-group">
+	        <li class="list-group-item d-flex align-items-center justify-content-between" th:each="chat : ${chats}">
+	            <a th:href="@{/usuario/perfil/{username}(username=${chat.user1.username == #authentication.name ? chat.user2.username : chat.user1.username})}" class="me-3">
+	                <img th:src="@{/images/{image}(image=${chat.user1.username == #authentication.name ? chat.user2.imageName : chat.user1.imageName})}" 
+	                     alt="User Image" class="rounded-circle" style="width: 48px; height: 48px;">
+	            </a>
+	            <a th:href="@{/chat/{id}(id=${chat.id})}" th:text="${chat.user1.username == #authentication.name ? chat.user2.username : chat.user1.username}" class="flex-grow-1"></a>
+	            <!-- Indicador de mensajes no leídos -->
+	            <span th:if="${chat.messages.?[!isRead].size() > 0}" class="badge bg-danger rounded-pill">
+				    <i class="bi bi-envelope-fill"></i> 
+				    <span th:text="${chat.messages.?[!isRead].size()}"></span>
+				</span>
+	        </li>
+	    </ul>
+	</div>
+
+	<footer class="footer mt-auto">
+	  <div th:if="${#authorization.expression('hasRole(''ROLE_ADMIN'')')}">
+	    <div th:include="fragments/template.html::footer"></div>
+	  </div>
+	  <div th:if="${#authorization.expression('hasRole(''ROLE_USER'')')}">
+	    <div th:include="fragments/user_template.html::footer"></div>
+	  </div>
+	</footer>
+  
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

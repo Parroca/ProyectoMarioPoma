@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Editar Producto</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" th:href="@{/css/crear.css}" href="../static/css/crear.css"/>
+    
+</head>
+<body>
+
+    <div th:if="${#authorization.expression('hasRole(''ROLE_ADMIN'')')}">
+        <div th:include="fragments/template.html::header"></div>
+    </div>
+    <div th:if="${#authorization.expression('hasRole(''ROLE_USER'')')}">
+        <div th:include="fragments/user_template.html::header"></div>
+    </div>
+  
+    <div class="container-fluid d-flex flex-column min-vh-100">
+        <div class="container flex-grow-1">
+			<div class="row justify-content-center">
+                <div class="col-lg-8">
+					<div class="card">
+						<div class="card-header">
+				            <h1 class="card-title text-center">Editar Producto</h1>
+						</div>
+						<div class="card-body">
+				            <form class="form-horizontal" th:action="@{/anuncios/actualizar}" method="post" enctype="multipart/form-data" th:object="${item}">
+				                <input type="hidden" th:field="*{id}"/>
+				                <div class="form-group mb-3">
+				                    <label class="from-label" for="nombre">Nombre:</label>			                    
+				                    <input type="text" class="form-control" id="nombre" name="name" placeholder="Ingrese el nombre del producto" th:field="*{name}" required>				                   
+				                </div>
+				                <div class="form-group mb-3">
+				                    <label class="from-label" for="descripcion">Descripción:</label>			                    
+				                    <textarea class="form-control" id="descripcion" name="description" placeholder="Ingrese la descripcion del producto" th:field="*{description}" required></textarea>			                    
+				                </div>
+				                <div class="form-group mb-3">
+				                    <label class="form-label " for="precio">Precio:</label>				                    
+				                    <input type="number" class="form-control" step="any" id="precio" name="price" placeholder="Ingrese el precio del producto" th:field="*{price}" required>			                    
+				                </div>
+				                <div class="form-group mb-3">
+				                    <label class="form-label" for="categoria">Categoría:</label>			                    
+				                    <select class="form-control" id="categoria" name="categoria" th:field="*{categoria}">
+				                    	<option value="" disabled selected>Seleccione una categoría</option>
+				                        <option th:each="categoria : ${T(cat.institutmarianao.proyecto.model.Item.Categoria).values()}" th:value="${categoria}" th:text="${categoria}">Categoria</option>
+				                    </select>	                    
+				                </div>
+				                <div class="form-group mb-3">
+				                    <label class="control-label" for="img">Imagen:</label>				                    
+				                    <img th:src="@{/images/{imageName}(imageName=${item.imageName})}" alt="Imagen actual" style="max-width: 200px; display: block; margin-bottom: 10px;"/>
+				                    <input type="file" class="form-control-file" id="img" name="img">		                   
+				                </div>				             
+								<div class="d-grid">			                    
+				                	<button type="submit" class="btn btn-primary">
+				                    	<i class="bi bi-save"></i> Guardar
+				                    </button>				                    				                    							           							       
+				                </div>			                
+				            </form>
+						</div>
+						<div class="card-footer text-end">
+							<a th:href="@{/anuncios}" class="btn btn-danger">
+								<i class="bi bi-x-circle"></i> Salir
+							</a>
+				        </div>
+					</div>
+                </div>
+			</div>
+		</div>
+    </div>
+
+    <footer class="mt-auto">
+	    <div th:if="${#authorization.expression('hasRole(''ROLE_ADMIN'')')}">
+	        <div th:include="fragments/template.html::footer"></div>
+	    </div>
+	    <div th:if="${#authorization.expression('hasRole(''ROLE_USER'')')}">
+	        <div th:include="fragments/user_template.html::footer"></div>
+	    </div>
+     </footer>
+    
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/confirmar.js"></script>
+</body>
+</html>

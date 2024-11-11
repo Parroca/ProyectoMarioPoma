@@ -1,0 +1,43 @@
+
+body {
+    padding-top: 90px; 
+  	background: url('/images/hojas.jpg');
+}
+
+.card {
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.card-header {
+    background-color: #004085; 
+    color: white;
+    text-align: center;
+    font-size: 1.25rem;
+    font-weight: bold;
+    
+}
+
+.card-body {
+    padding: 1.5rem;
+}
+
+.btn {
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+}
+
+.btn-success {
+    background-color: #28a745;
+    border-color: #28a745;
+}
+
+.btn-success:hover {
+    background-color: #218838;
+    border-color: #1e7e34;
+}
+
+.card-img-top {
+    border-radius: 0.25rem;
+}
+

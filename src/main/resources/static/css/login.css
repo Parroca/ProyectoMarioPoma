@@ -1,0 +1,97 @@
+*{
+	font-family: 'Poppins';
+}
+
+body{
+	background-position: center;
+	background-size: cover;
+	background-attachment: fixed;
+	transition: background-image 1.5s ease-in-out;
+}
+
+a{
+	text-decoration: none;
+	color: #ffffff;
+}
+
+a:hover{
+	text-decoration: underline;
+}
+
+.card{
+	background-color: rgba(0, 0, 0, 0.2);
+	backdrop-filter: blur(10px);
+}
+
+.card-header{
+	width: 100%;
+	background-color: rgba(0, 0, 0, 0.4);
+	backdrop-filter: blur(10px);
+	
+}
+
+.card-header h5{
+	font-size: 30px;
+	color: #ffffff;
+}
+
+.py-1{
+	border: 1px solid gray;
+	border-radius: 40px;
+}
+.in {
+	
+	background: transparent;
+	border-radius: 30px;
+	border: 0px;
+	color: #ffffff;
+	
+}
+
+.in:focus {
+    background: transparent; 
+    outline: none;
+    box-shadow: none; 
+}
+
+.input-group-text{
+	background: transparent;
+	border-radius: 30px;
+	border: 0px;
+}
+
+.btn{
+	background: #fbceb5;
+	border: 1px solid #fbceb5;
+	border-radius: 40px;
+	transition: background-color 0.3s ease-in-out;
+}
+
+.btn:hover{
+	color: black;
+	border-radius: 40px;
+	background: #eab395;
+}
+
+.field-icon {
+    cursor: pointer;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #ffffff
+}
+
+i, p {
+	color: #ffffff;
+}
+
+::placeholder {
+    color: #ffffff !important;
+    opacity: 1; 
+}
+
+.bi-eye, .bi-eye-slash {
+    color: #ffffff !important;
+}
+

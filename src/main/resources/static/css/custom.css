@@ -1,0 +1,47 @@
+body {
+    padding-top: 56px; 
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  .jumbotron {
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    padding: 2rem;
+  }
+  
+  .section-title {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .card-link {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  .card {
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  
+  .card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  }
+  
+  .card-img-top {
+    object-fit: cover;
+    height: 200px; 
+  }
+  
+  @media (max-width: 576px) {
+    .card-img-top {
+        height: 150px; 
+    }
+  }
+  
+  .container.mb-auto {
+    flex: 1;
+  }
+  

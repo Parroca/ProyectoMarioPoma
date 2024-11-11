@@ -1,0 +1,100 @@
+body {
+    padding-top: 56px; 
+    background: #654ea3;
+    background: linear-gradient(to right, #e96443, #904e95);
+    min-height: 100vh;
+    overflow-x:hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    flex-grow: 1;
+}
+.profile-head {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    background: url(https://images.unsplash.com/photo-1530305408560-82d13781b33a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1352&q=80);
+    background-size: cover;
+    padding-bottom: 20px;
+}
+
+.profile {
+    position: absolute;
+    bottom: 10px;  
+    left: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+}
+
+.profile img {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    border: 3px solid #fff;
+}
+
+.media-body {
+    color: white;
+    text-align: left;
+    margin-top: 75px;
+}
+
+.profile .btn {
+    margin-top: 10px;
+}
+
+.list-inline-item h5 {
+    font-weight: bold;
+}
+
+.list-inline-item small {
+    font-size: 14px;
+    color: #6c757d;
+}
+
+.bg-light {
+    background-color: #f8f9fa !important;
+}
+
+.card-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.card {
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.card-img-top {
+    object-fit: cover;
+    height: 200px;
+}
+
+@media (max-width: 576px) {
+    .card-img-top {
+        height: 150px;
+    }
+}
+
+footer {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    height: auto;
+    margin-top: auto;
+}
+
+html, body {
+    height: 100%;
+}

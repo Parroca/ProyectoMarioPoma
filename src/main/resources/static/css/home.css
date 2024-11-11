@@ -1,0 +1,88 @@
+
+body {
+  padding-top: 56px; 
+  background: url('/images/hojas.jpg');
+
+}
+
+.jumbotron {
+  border-radius: 10px;
+  padding: 2rem;
+  background: url('/images/verde.jpg');
+  color: #ffffff;
+}
+
+.section-title {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  border-bottom: 2px solid #0a0908; 
+    padding-bottom: 5px;
+}
+
+.card-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.card-title{
+	border-bottom: 2px solid #0a0908; 
+    padding-bottom: 5px;
+}
+
+.an{
+	border-bottom: 2px solid #0a0908; 
+    padding-bottom: 5px;
+}
+
+.card {
+  transition: transform 0.3s, box-shadow 0.3s;
+  background-color: #679289;
+
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.card-img-top {
+  object-fit: cover;
+  height: 200px; 
+}
+
+.badge {
+  font-size: 1rem;
+}
+
+.section-title form {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+
+.section-title form select,
+.section-title form button {
+  font-size: 0.9rem;
+  padding: 0.3rem 0.5rem;
+  height: auto;
+}
+
+@media (max-width: 576px) {
+  .card-img-top {
+      height: 150px; 
+  }
+  
+}
+
+@media (max-width: 768px) {
+  .section-title {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .section-title form {
+    justify-content: center;
+    margin-top: 1rem;
+  }
+}

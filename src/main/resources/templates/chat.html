@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" th:href="@{/css/chat.css}" href="../static/css/chat.css"/>
+    
+</head>
+<body>
+
+    <div th:if="${#authorization.expression('hasRole(''ROLE_ADMIN'')')}">
+        <div th:include="fragments/template.html::header"></div>
+    </div>
+    <div th:if="${#authorization.expression('hasRole(''ROLE_USER'')')}">
+        <div th:include="fragments/user_template.html::header"></div>
+    </div>
+    
+    <div class="container mt-3">
+        <div class="chat-header d-flex align-items-center p-3 rounded shadow">
+            <h1 class="flex-grow-1 mb-0">
+                Chat con 
+                <span th:text="${messages[0]?.sender.username == #authentication.name ? messages[0]?.chat.user2.username : messages[0]?.sender.username}"></span>
+            </h1>
+            <a th:href="@{/usuario/perfil/{username}(username=${messages[0]?.sender.username == #authentication.name ? messages[0]?.chat.user2.username : messages[0]?.sender.username})}">
+                <img th:src="@{/images/{image}(image=${messages[0]?.sender.username == #authentication.name ? messages[0]?.chat.user2.imageName : messages[0]?.sender.imageName})}" 
+                     alt="User Image" class="rounded-circle" style="width: 48px; height: 48px;">
+            </a>
+        </div>
+        
+        <div class="chat-box">
+            <ul class="list-group">
+                <li class="list-group-item" 
+                    th:each="message : ${messages}" 
+                    th:classappend="${message.sender.username == #authentication.name} ? 'sent' : 'received'">
+                    <strong th:text="${message.sender.username}"></strong>: 
+                    <span th:text="${message.content}"></span>
+                    <small class="text-muted d-block" th:text="${#dates.format(message.timestamp, 'dd/MM/yyyy HH:mm')}"></small>
+                    <div th:if="${message.imageName}">
+                        <img th:src="@{'/images/' + ${message.imageName}}" alt="Mensaje Imagen" class="img-fluid mt-2" style="max-width: 300px;">
+                    </div>
+                </li>
+            </ul>
+        </div>
+        
+        <form th:action="@{'/chat/' + ${chatId} + '/messages'}" method="post" enctype="multipart/form-data" class="d-flex flex-column mt-3">
+            <div class="message-input d-flex align-items-center rounded p-3 shadow">
+                <div class="position-relative me-2">
+                    <button type="button" id="attachFileButton" class="btn btn-light rounded-circle p-3">
+                        <i class="bi bi-paperclip"></i>
+                    </button>
+                    <input type="file" name="imageFile" accept="image/*" id="fileInput" class="d-none">
+                </div>
+                
+                <div class="flex-grow-1 position-relative">
+                    <textarea id="messageContent" name="messageContent" class="form-control" placeholder="Escribe tu mensaje..." rows="1"></textarea>
+                    <button type="button" id="emojiButton" class="btn btn-light position-absolute emoji-button">
+                        😊
+                    </button>
+                    <div id="emojiPanel" class="d-none position-absolute">
+                        <span class="emoji">😊</span>
+                        <span class="emoji">😂</span>
+                        <span class="emoji">😍</span>
+                        <span class="emoji">👍</span>
+                        <span class="emoji">😢</span>
+                        <span class="emoji">🎉</span>
+                    </div>
+                </div>
+                
+                <button type="submit" class="btn btn-primary ms-2 rounded-circle p-3">
+                    <i class="bi bi-send"></i>
+                </button>
+            </div>
+
+            <div id="filePreview" class="mt-2 d-none">
+                <div class="d-flex align-items-center">
+                    <span id="fileName" class="me-2"></span>
+                    <button type="button" id="removeFileButton" class="btn btn-danger btn-sm">✖</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <script src="/js/emoji.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

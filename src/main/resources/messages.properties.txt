@@ -1,0 +1,208 @@
+######################################################################
+# Constants ##########################################################
+######################################################################
+date.format=dd/MM/yyyy HH:mm:ss
+
+######################################################################
+# fragments/dialogs.html #############################################
+######################################################################
+dialogs.user.remove.title=Confirm remove
+dialogs.user.remove.body=Are you sure you wish to delete user <strong>{0}</strong>?
+dialogs.user.remove.cancel.button=Cancel
+dialogs.user.remove.remove.button=Remove
+
+dialogs.shipment.assign.title=Assign
+dialogs.shipment.assign.courier=Courier
+dialogs.shipment.assign.priority=Priority
+dialogs.shipment.assign.cancel.button=Cancel
+dialogs.shipment.assign.assign.button=Assign
+
+dialogs.shipment.deliver.title=Deliver
+dialogs.shipment.deliver.body=You are going to deliver shipment <strong>{0}</strong> with tracking# <strong>{1}</strong>.<br> Press [Deliver] button to confirm.
+dialogs.shipment.deliver.cancel.button=Cancel
+dialogs.shipment.deliver.deliver.button=Deliver
+
+######################################################################
+# fragments/forms.html ###############################################
+######################################################################
+forms.sender=Sender
+forms.recipient=Recipient
+forms.address.name=Name
+forms.address.name.placeholder=Optional name
+forms.address.street=Address
+forms.address.street.placeholder=Street, alley, place, avenue...
+forms.address.number=Number
+forms.address.number.placeholder=Str. no.
+forms.address.floor=Floor
+forms.address.floor.placeholder=Floor
+forms.address.door=Door
+forms.address.door.placeholder=Door
+
+forms.address.city=City
+forms.address.city.placeholder=City
+forms.address.province=State
+forms.address.province.placeholder=State / Province
+forms.address.postalCode=Post code
+forms.address.postalCode.placeholder=Postal code
+forms.address.country=Country
+forms.address.country.placeholder=Country
+
+######################################################################
+# fragments/template.html ############################################
+######################################################################
+template.head.title=Shipments
+
+template.header.title=Shipments
+template.header.subtitle=An Institut Marianao application
+
+template.navbar.shipments=Shipments
+template.navbar.shipments.new=New...
+template.navbar.shipments.pending=Pending
+template.navbar.shipments.in_process=In process
+template.navbar.users=Users
+template.navbar.users.new=New...
+template.navbar.users.edit=Edit
+template.navbar.users.list=List
+template.navbar.language=Language
+template.navbar.language.spanish=Spanish
+template.navbar.language.english=English
+template.navbar.logout=Logout
+
+template.heading.welcome=Welcome!
+template.heading.shipments.new=New Shipment
+template.heading.shipments.list.PENDING=Shipments pending
+template.heading.shipments.list.IN_PROCESS=Shipments in process
+template.heading.users.new=New user
+template.heading.users.edit=Edit user
+template.heading.users.list=Users
+
+######################################################################
+# login.html #########################################################
+######################################################################
+login.give.credentials=Please, enter your credentials
+login.credentials.failure=The given credentials are wrong
+login.username=Username
+login.password=Password
+login.login=Login
+
+######################################################################
+# Shipment.Category ##################################################
+######################################################################
+shipment.category.PARTICULAR=Particular
+shipment.category.COMPANY=Company
+shipment.category.GOVERNMENT=Government
+
+######################################################################
+# Shipment validation fields #########################################
+######################################################################
+shipment.trackingNumber=Tracking #
+shipment.sender.street=Sender address
+shipment.sender.number=Sender number
+shipment.sender.city=Sender city
+shipment.sender.state=Sender state
+shipment.sender.postalCode=Sender postal code
+shipment.sender.country=Sender country
+shipment.recipient.street=Recipient address
+shipment.recipient.number=Recipient number
+shipment.recipient.city=Recipient city
+shipment.recipient.state=Recipient state
+shipment.recipient.postalCode=Recipient postal code
+shipment.recipient.country=Recipient country
+
+######################################################################
+# shipment.html ######################################################
+######################################################################
+shipment.tracking.num=Tracking #
+shipment.tacking.num.placeholder=0000000000
+shipment.receptionist=Receptionist
+shipment.priority=Priority
+shipment.priority.placeholder=1
+shipment.category=Category
+shipment.weight=Weight
+shipment.height=Height
+shipment.width=Width
+shipment.length=Length
+shipment.express=Express
+shipment.fragile=Fragile
+shipment.note=Note
+shipment.description=Description
+shipment.add.new=Add new shipment
+#Uses Shipment.Category
+
+######################################################################
+# shipments.html #####################################################
+######################################################################
+shipments.table.head.num=#
+shipments.table.head.tracking.num=Tracking #
+shipments.table.head.reception=Reception
+shipments.table.head.receptionist=Receptionist
+shipments.table.head.priority=Priority
+shipments.table.head.courier=Courier
+shipments.table.head.category=Category
+shipments.table.head.note=Note
+shipments.table.head.assign=Assign
+shipments.table.head.deliver=Deliver
+#Uses Shipment.Category
+
+
+#shipments-filter.jsp - perform intervention on shipment dialog  - TODO
+shipments.intervention.title=Intervention
+shipments.intervention.technician=Technician:
+shipments.intervention.date=Date:
+shipments.intervention.hours=Hours:
+shipments.intervention.description=Description:
+shipments.intervention.button=Intervention
+shipments.intervention.cancel.button=Cancel
+
+######################################################################
+# User.Role ##########################################################
+######################################################################
+user.role.RECEPTIONIST=Receptionist
+user.role.LOGISTICS_MANAGER=Logistics Manager
+user.role.COURIER=Courier
+
+######################################################################
+# user.html ##########################################################
+######################################################################
+user.role=Role
+user.extension=Extension
+user.extension.placeholder=0000
+user.username=Username
+user.username.placeholder=System user name
+user.password=Password
+user.password.placeholder=User password
+user.verify=Verify
+user.verify.placeholder=Verify the password
+user.fullName=Full name
+user.fullName.placeholder=Name and surname
+user.office=Office
+user.place=Place
+user.place.placeholder=Place
+user.company=Company
+user.add.new=Add new user
+user.update=Update user
+
+######################################################################
+# users.html #########################################################
+######################################################################
+users.table.head.num=#
+users.table.head.role=Role
+users.table.head.username=Username
+users.table.head.full.name=Full Name
+users.table.head.ext=Ext.
+users.table.head.location=Location
+users.table.head.delete=Delete
+users.table.body.external=External,
+
+users.remove.error=Could not delete user {0}. If he is involved in any shipment, please, remove the shipment first.
+
+
+######################################################################
+# UserFormValidation.java ############################################
+######################################################################
+userFormValidation.password.does.not.match=<strong>password</strong> does not match <strong>verify</strong>
+
+######################################################################
+# Exceptions #########################################################
+######################################################################
+exception.badCredentials=Bad Credentials

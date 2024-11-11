@@ -1,0 +1,15 @@
+body {
+    padding-top: 56px; 
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: url('/images/hojas.jpg');
+  }
+  
+html{
+	height: 100%;
+}
+
+.container {
+    flex: 1; 
+}
